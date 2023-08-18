@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <title>Jade Salary Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>Jade Salary Calculator</h1>
+    </header>
+
+    <main>
+    <section>
+        <h2>Add Employee</h2>
+        <form>
+        <input id="firstName", placeholder="First Name", type="text">
+        <input id="lastName", placeholder="Last Name", type="text">
+        <input id="idInput", placeholder="ID", type="text">
+        <input id="titleInput", placeholder="Title", type="text">
+        <input id="annualSalaryInput", placeholder="Annual Salary", type="text">
+    
+        <button class="submit-button">Submit</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Employees</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Annual Salary</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- this area will be where i will work at populating the inputs -->
+            </tbody>
+                <!-- this empty tr will be for the empty row at the bottom -->
+                <tr></tr>
+        </table>
+    </section>
+</main>
+<footer>
+    <!-- Add something here maybe? -->
+</footer>
+</body>
+</html>
