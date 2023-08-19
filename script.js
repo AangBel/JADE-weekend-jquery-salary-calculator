@@ -103,6 +103,13 @@ const salarySum = moneyArray.reduce((accumulator, currentValue)=> {
 
 console.log(salarySum);
 
+function getMonthly(){
+     let monthlyResult = Math.round(salarySum / 12);
+     let salaryFormatted = monthlyResult.toLocaleString("en-US",formatting_options);
+     $('#totalMonthlyOnDom').text(`Total Monthly: ${salaryFormatted}`);
+}//end of getMonthly
+
+getMonthly();
 
 
 // for (let i = 0; i < moneyArray.length; i++){
@@ -112,8 +119,8 @@ console.log(salarySum);
 // };
 
 
-let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
-$('#totalMonthlyOnDom').text(`Total Monthly: ${salaryFormatted}`);
+// let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
+// $('#totalMonthlyOnDom').text(`Total Monthly: ${monthlyResult}`);
 
 
 
