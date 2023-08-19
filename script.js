@@ -51,18 +51,17 @@ $('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNa
 moneyArray.push(Number(salaryInputVar));
 console.log('this would be the money array push under calc monthly costs', moneyArray);
 
+const salarySum = moneyArray.reduce((accumulator, currentValue)=> {
+     return accumulator + currentValue;
+}, 0);
 
-// for (let i = 0; i > moneyArray.length; i++){
+console.log(salarySum);
+
+// for (let i = 0; i < moneyArray.length; i++){
 //      console.log('this is the for loop');
 //      sum += moneyArray[i];
-//      console.log(moneyArray);
+//      console.log(sum);
 // };
-
-for (let i = 0; i < moneyArray.length; i++){
-     console.log('this is the for loop');
-     sum += moneyArray[i];
-     console.log(sum);
-};
 
 }//end of get the input function
 
