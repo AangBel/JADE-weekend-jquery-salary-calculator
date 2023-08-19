@@ -42,7 +42,7 @@ let salaryInputVar = $('#annualSalaryInput').val();
 $('#annualSalaryInput').val("");
 
 
-$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputVar}</td><td><button>Delete</button></td></tr>`);
+$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">$${salaryInputVar}</td><td><button>Delete</button></td></tr>`);
 //gonna try to target the data box for salary by giving it an id and using this in a function to add up costs...
 
 // let money = $('#moneyInput').val();
@@ -63,7 +63,7 @@ console.log(salarySum);
 //      console.log(sum);
 // };
 
-$('#totalMonthlyOnDom').text(`Total Monthly: ${salarySum}`);
+$('#totalMonthlyOnDom').text(`Total Monthly: $${salarySum}`);
 
 
 }//end of get the input function
@@ -132,4 +132,6 @@ function deleteRowBtn(){
 //-----------------
 // let formatting_options = { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }
 //     let salaryFormatted = number.toLocaleString("en-US",formatting_options);
+
+//one google suggested using string concatenation for the $ ...
 
