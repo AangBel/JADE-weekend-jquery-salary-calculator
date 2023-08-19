@@ -112,18 +112,24 @@ function deleteRowBtn(){
 
 // calculateMonthlyCosts();
 
-//stop the page from reloading on submit❎
-//the inputs are saved somewhere- in this case a variable...❎
-//i want the inputs to now appear in the table❎
+//stop the page from reloading on submit✅
+//the inputs are saved somewhere- in this case a variable...✅
+//i want the inputs to now appear in the table✅
 //i do this by tying those new variables to the jquery appending stuff to the html table 
-//made delete button ❎
-//make delete button delete row ❎
-//make delete button delete the correct row!❎
+//made delete button ✅
+//make delete button delete row ✅
+//make delete button delete the correct row!✅
 
-//store the information to calculate monthly costs,❎
-//calculate monthly costs ❎
-//append this to the to DOM. 
+//store the information to calculate monthly costs,✅
+//calculate monthly costs ✅
+//append this to the to DOM. ✅
+//have it take the dollar sign too....
+//or do i just tack the number in the table data and in the monthly text...
+
 //If the total monthly cost exceeds $20,000
 //add a red background color to the total monthly cost.
 
+//-----------------
+// let formatting_options = { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }
+//     let salaryFormatted = number.toLocaleString("en-US",formatting_options);
 
