@@ -1,4 +1,34 @@
 $(document).ready(onReady);
+
+ // function to format number with Intl.NumberFormat() method.
+// function formatNumberWithDollar() {
+//      let formatting_options = {
+//      style: 'currency',
+//      currency: 'USD',
+//      minimumFractionDigits: 3,
+//      }
+     // users can see how locale passed as a parameter.
+//      let dollarString = new Intl.NumberFormat("en-US", formatting_options);
+//      let finalString = dollarString.format(5323.35445);
+//      let result = document.getElementById("result");
+//      result.innerHTML = finalString;
+// }
+
+// let formatting_options = {
+//      style: 'currency',
+//      currency: 'USD',
+//      minimumFractionDigits: 2,
+// }
+// let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
+
+// minimumFractionDigits: 3 
+
+// let salaryFormatted = number.toLocaleString("en-US",formatting_options);
+
+// let salaryFormatted = number.toLocaleString("en-US",formatNumberWithDollar);
+
+//one google suggested using string concatenation for the $ ...
+
 //----------------------------------------------- ON READY-------
 function onReady(){
      // Submit Button Listener
@@ -42,7 +72,7 @@ let salaryInputVar = $('#annualSalaryInput').val();
 $('#annualSalaryInput').val("");
 
 
-$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">$${salaryInputVar}</td><td><button>Delete</button></td></tr>`);
+$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputVar}</td><td><button>Delete</button></td></tr>`);
 //gonna try to target the data box for salary by giving it an id and using this in a function to add up costs...
 
 // let money = $('#moneyInput').val();
@@ -52,10 +82,12 @@ moneyArray.push(Number(salaryInputVar));
 console.log('this would be the money array push under calc monthly costs', moneyArray);
 
 const salarySum = moneyArray.reduce((accumulator, currentValue)=> {
-     return accumulator + currentValue;
+     return (accumulator + currentValue);
 }, 0);
 
 console.log(salarySum);
+
+
 
 // for (let i = 0; i < moneyArray.length; i++){
 //      console.log('this is the for loop');
@@ -63,7 +95,16 @@ console.log(salarySum);
 //      console.log(sum);
 // };
 
-$('#totalMonthlyOnDom').text(`Total Monthly: $${salarySum}`);
+let formatting_options = {
+     style: 'currency',
+     currency: 'USD',
+     minimumFractionDigits: 2,
+}
+let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
+
+$('#totalMonthlyOnDom').text(`Total Monthly: ${salaryFormatted}`);
+
+
 
 
 }//end of get the input function
@@ -123,15 +164,14 @@ function deleteRowBtn(){
 //store the information to calculate monthly costs,✅
 //calculate monthly costs ✅
 //append this to the to DOM. ✅
-//have it take the dollar sign too....
+//have it take the dollar sign too....✅
 //or do i just tack the number in the table data and in the monthly text...
+//now how to integrate the currency... so i can have the formatting for the cents and the comma...
+
 
 //If the total monthly cost exceeds $20,000
 //add a red background color to the total monthly cost.
 
 //-----------------
-// let formatting_options = { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }
-//     let salaryFormatted = number.toLocaleString("en-US",formatting_options);
 
-//one google suggested using string concatenation for the $ ...
 
