@@ -40,7 +40,8 @@ function onReady(){
      // Submit Button Listener
 $('.submit-button').on('click', getTheInput);
 
-$('#tableBody').on('click', '#deleteBtn', deleteRowBtn);
+// $('#tableBody').on('click', '#deleteBtn', deleteRowBtn);
+$('#tableBody').on('click', '#tableRow', deleteRowBtn);
 }//end of onREADY
 //-----------------------------------------------END OF ON READY-------
 
@@ -128,8 +129,8 @@ getMonthly();
 }//end of get the input function
 
 function deleteRowBtn(){
-     $('#tableRow').remove();
-     // (this).remove();
+     // $('#tableRow').remove();
+     (this).remove();
 }//end of delete row btn 
 
 
