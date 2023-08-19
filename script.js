@@ -1,23 +1,26 @@
 $(document).ready(onReady);
-
+//----------------------------------------------- ON READY-------
 function onReady(){
      // Submit Button Listener
 $('.submit-button').on('click', getTheInput);
 
 $('#tableBody').on('click', '#tableRow', deleteRowBtn);
 }//end of onREADY
-
+//-----------------------------------------------END OF ON READY-------
 
 let moneyArray = [];
-console.log(moneyArray);
+// console.log(moneyArray);
 
 let currentAnnualCost= 0;
 
+let sum = 0;
+
+//--------------------------------------------------------------------------
 function getTheInput(event){
 event.preventDefault();
 
 console.log("in the getTheInput function");  
-//-----------------------------------------------Input Variables-------
+
 let firstNameInput = $('#firstName').val();
 // console.log('first name variable is working');
 $('#firstName').val("");
@@ -38,8 +41,6 @@ let salaryInputVar = $('#annualSalaryInput').val();
 // console.log('salary variable is working');
 $('#annualSalaryInput').val("");
 
-//Takes input and stores it
-//-----------------------------------------------Input Variables-------
 
 $('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputVar}</td><td><button>Delete</button></td></tr>`);
 //gonna try to target the data box for salary by giving it an id and using this in a function to add up costs...
@@ -51,6 +52,18 @@ moneyArray.push(Number(salaryInputVar));
 console.log('this would be the money array push under calc monthly costs', moneyArray);
 
 
+// for (let i = 0; i > moneyArray.length; i++){
+//      console.log('this is the for loop');
+//      sum += moneyArray[i];
+//      console.log(moneyArray);
+// };
+
+for (let i = 0; i < moneyArray.length; i++){
+     console.log('this is the for loop');
+     sum += moneyArray[i];
+     console.log(sum);
+};
+
 }//end of get the input function
 
 function deleteRowBtn(){
@@ -59,6 +72,13 @@ function deleteRowBtn(){
 
 
 
+ // console.log(moneyArray);
+// let sum = 0;
+
+     // for (let i = 0; i > moneyArray.length; i++){
+     //      console.log('this is the for loop');
+     //      sum += moneyArray[i];
+     // };
 
 
 // let currentAnnualCost= 0;
@@ -98,7 +118,7 @@ function deleteRowBtn(){
 //make delete button delete row ❎
 //make delete button delete the correct row!❎
 
-//store the information to calculate monthly costs,
+//store the information to calculate monthly costs,❎
 //calculate monthly costs 
 //append this to the to DOM.
 //If the total monthly cost exceeds $20,000
