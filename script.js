@@ -29,12 +29,18 @@ $(document).ready(onReady);
 
 //one google suggested using string concatenation for the $ ...
 
+let formatting_options = {
+     style: 'currency',
+     currency: 'USD',
+     minimumFractionDigits: 2,
+}
+
 //----------------------------------------------- ON READY-------
 function onReady(){
      // Submit Button Listener
 $('.submit-button').on('click', getTheInput);
 
-$('#tableBody').on('click', '#tableRow', deleteRowBtn);
+$('#tableBody').on('click', '#deleteBtn', deleteRowBtn);
 }//end of onREADY
 //-----------------------------------------------END OF ON READY-------
 
@@ -69,10 +75,20 @@ $('#titleInput').val("");
 
 let salaryInputVar = $('#annualSalaryInput').val();
 // console.log('salary variable is working');
+
+// let salaryInputFormattedForDom = salaryInputVar;
+// console.log(salaryInputFormattedForDom);
+
 $('#annualSalaryInput').val("");
 
 
-$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputVar}</td><td><button>Delete</button></td></tr>`);
+
+
+let salaryInputFormatted = salaryInputVar.toLocaleString("en-US",formatting_options);
+console.log('this is the salary input formatted', salaryInputFormatted);
+console.log(formatting_options);
+
+$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputFormatted}</td><td><button id="deleteBtn">Delete</button></td></tr>`);
 //gonna try to target the data box for salary by giving it an id and using this in a function to add up costs...
 
 // let money = $('#moneyInput').val();
@@ -95,13 +111,8 @@ console.log(salarySum);
 //      console.log(sum);
 // };
 
-let formatting_options = {
-     style: 'currency',
-     currency: 'USD',
-     minimumFractionDigits: 2,
-}
-let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
 
+let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
 $('#totalMonthlyOnDom').text(`Total Monthly: ${salaryFormatted}`);
 
 
@@ -110,7 +121,8 @@ $('#totalMonthlyOnDom').text(`Total Monthly: ${salaryFormatted}`);
 }//end of get the input function
 
 function deleteRowBtn(){
-     (this).remove();
+     $('#tableRow').remove();
+     // (this).remove();
 }//end of delete row btn 
 
 
