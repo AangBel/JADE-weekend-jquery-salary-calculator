@@ -63,6 +63,9 @@ console.log(salarySum);
 //      console.log(sum);
 // };
 
+$('#totalMonthlyOnDom').text(`Total Monthly: ${salarySum}`);
+
+
 }//end of get the input function
 
 function deleteRowBtn(){
@@ -118,8 +121,8 @@ function deleteRowBtn(){
 //make delete button delete the correct row!❎
 
 //store the information to calculate monthly costs,❎
-//calculate monthly costs 
-//append this to the to DOM.
+//calculate monthly costs ❎
+//append this to the to DOM. 
 //If the total monthly cost exceeds $20,000
 //add a red background color to the total monthly cost.
 
