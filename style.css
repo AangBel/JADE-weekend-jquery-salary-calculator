@@ -16,11 +16,10 @@ body{
     position: ;
 } */
 
-#blank_row
-{
+/* .blank_row {
     height: 50px !important; /* overwrites any other rules */
-    /* background-color: teal; */
-}
+    /* background-color: teal;
+} */ */
 
 /* FLEXBOX LAYOUT */
 html, body {
@@ -105,4 +104,9 @@ tbody tr:nth-child(even){
 
 tbody tr:nth-child(last){
     background: #313131;
+}
+
+.blank_row {
+    height: 50px !important; /* overwrites any other rules */
+    background: teal;
 }

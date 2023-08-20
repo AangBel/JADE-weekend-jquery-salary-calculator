@@ -49,7 +49,7 @@ $('.submit-button').on('click', getTheInput);
 
 //this one with (this).remove(); makes it so that the delete button itself is deleted 
 //this with $('#tableRow').remove(); makes it so that it deletes a whole row- but it will be the row at the top
-$('#tableBody').on('click', '#deleteBtn', deleteRowBtn);
+$('#tableBody').on('click', '.deleteBtn', deleteRowBtn);
 
 //this one with (this).remove(); makes it so that it will delete the correct one but anywhere on the row can trigger a delete...
 //  $('#tableRow').remove(); this also does as above.... 
@@ -105,11 +105,14 @@ console.log('this is the salary input formatted', salaryInputFormatted);
 console.log(formatting_options);
 
 
-$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputFormatted}</td><td><button id="deleteBtn">Delete</button></td></tr>`);
+$('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputVar}</td><td><button class="deleteBtn">Delete</button></td></tr>`);
 //gonna try to target the data box for salary by giving it an id and using this in a function to add up costs...
 
-// let money = $('#moneyInput').val();
+let money = $('#moneyInput');
 // console.log(money);
+
+let formattedSalary = Number(salaryInputVar).toLocaleString("en-US", formatting_options);
+money.text(formattedSalary);
 
 moneyArray.push(Number(salaryInputVar));
 
@@ -160,7 +163,8 @@ over20Grand();
 function deleteRowBtn(){
      // $('#deleteBtn').on('click', deleteRowTwo);
      // tackleRow.remove();
-     $('#tableRow').remove();
+     $(this).closest('tr').remove();
+     // $('#tableRow').remove();
      // $(this).remove();
 }//end of delete row btn 
 
