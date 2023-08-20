@@ -42,7 +42,9 @@ footer {
     text-align: center;
 }
 
-
+#totalMonthlyOnDom {
+    background-color: #dcdcdc;
+}
 
 /* HEADER/FOOTER */
 header, footer {

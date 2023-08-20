@@ -40,8 +40,16 @@ function onReady(){
      // Submit Button Listener
 $('.submit-button').on('click', getTheInput);
 
-// $('#tableBody').on('click', '#deleteBtn', deleteRowBtn);
-$('#tableBody').on('click', '#tableRow', deleteRowBtn);
+//this one with (this).remove(); makes it so that the delete button itself is deleted 
+//this with $('#tableRow').remove(); makes it so that it deletes a whole row- but it will be the row at the top
+$('#tableBody').on('click', '#deleteBtn', deleteRowBtn);
+
+//this one with (this).remove(); makes it so that it will delete the correct one but anywhere on the row can trigger a delete...
+//  $('#tableRow').remove(); this also does as above.... 
+// $('#deleteBtn').remove(); this removes the buttons
+// $('#tableBody').on('click', '#tableRow', deleteRowBtn);
+
+
 }//end of onREADY
 //-----------------------------------------------END OF ON READY-------
 
@@ -75,7 +83,7 @@ let titleInputVar = $('#titleInput').val();
 $('#titleInput').val("");
 
 let salaryInputVar = $('#annualSalaryInput').val();
-// console.log('salary variable is working');
+console.log('salary variable is working', salaryInputVar);
 
 // let salaryInputFormattedForDom = salaryInputVar;
 // console.log(salaryInputFormattedForDom);
@@ -96,21 +104,31 @@ $('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNa
 // console.log(money);
 
 moneyArray.push(Number(salaryInputVar));
+
 console.log('this would be the money array push under calc monthly costs', moneyArray);
 
 const salarySum = moneyArray.reduce((accumulator, currentValue)=> {
      return (accumulator + currentValue);
 }, 0);
 
-console.log(salarySum);
+console.log('this is the salary sum', salarySum);
+let monthlyResult = Math.round(salarySum / 12);
 
 function getMonthly(){
-     let monthlyResult = Math.round(salarySum / 12);
+     console.log('this is the monthly result', monthlyResult );
      let salaryFormatted = monthlyResult.toLocaleString("en-US",formatting_options);
      $('#totalMonthlyOnDom').text(`Total Monthly: ${salaryFormatted}`);
 }//end of getMonthly
-
 getMonthly();
+
+function over20Grand(){
+     if(monthlyResult > 20000){
+     $('#totalMonthlyOnDom').css("background-color", "red");
+};
+}//end of over20Grand
+
+over20Grand();
+
 
 
 // for (let i = 0; i < moneyArray.length; i++){
@@ -128,12 +146,23 @@ getMonthly();
 
 }//end of get the input function
 
+// let tackleRow = $('#tableRow');
+
+
 function deleteRowBtn(){
-     // $('#tableRow').remove();
-     (this).remove();
+     // $('#deleteBtn').on('click', deleteRowTwo);
+     // tackleRow.remove();
+     $('#tableRow').remove();
+     // $(this).remove();
 }//end of delete row btn 
 
+deleteRowBtn();
 
+// function deleteRowTwo(){
+//      $('#tableRow').remove();
+// }//end of deleteRowTwo
+
+// deleteRowTwo();
 
  // console.log(moneyArray);
 // let sum = 0;
