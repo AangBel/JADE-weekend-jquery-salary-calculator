@@ -8,16 +8,23 @@ $(document).ready(onReady);
 //      minimumFractionDigits: 3,
 //      }
      // users can see how locale passed as a parameter.
-//      let dollarString = new Intl.NumberFormat("en-US", formatting_options);
+     // let dollarString = new Intl.NumberFormat("en-US", formatting_options);
 //      let finalString = dollarString.format(5323.35445);
 //      let result = document.getElementById("result");
 //      result.innerHTML = finalString;
 // }
 
-// let formatting_options = {
+// function formatting_options(salary) {
+//      //format salary
+//      const formatter = new Intl.NumberFormat('en-US', 
+//      {
 //      style: 'currency',
-//      currency: 'USD',
-//      minimumFractionDigits: 2,
+//      currency:'USD',
+//      maximumFractionDigits:2
+// }
+//      )
+// }
+
 // }
 // let salaryFormatted = salarySum.toLocaleString("en-US",formatting_options);
 
@@ -33,7 +40,7 @@ let formatting_options = {
      style: 'currency',
      currency: 'USD',
      minimumFractionDigits: 2,
-}
+};
 
 //----------------------------------------------- ON READY-------
 function onReady(){
@@ -96,6 +103,7 @@ $('#annualSalaryInput').val("");
 let salaryInputFormatted = salaryInputVar.toLocaleString("en-US",formatting_options);
 console.log('this is the salary input formatted', salaryInputFormatted);
 console.log(formatting_options);
+
 
 $('#tableBody').append(`<tr id="tableRow"><td>${firstNameInput}</td><td>${lastNameInput}</td><td>${idInputVar}</td><td>${titleInputVar}</td><td id="moneyInput">${salaryInputFormatted}</td><td><button id="deleteBtn">Delete</button></td></tr>`);
 //gonna try to target the data box for salary by giving it an id and using this in a function to add up costs...

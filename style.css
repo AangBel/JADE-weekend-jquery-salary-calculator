@@ -16,6 +16,12 @@ body{
     position: ;
 } */
 
+#blank_row
+{
+    height: 50px !important; /* overwrites any other rules */
+    /* background-color: teal; */
+}
+
 /* FLEXBOX LAYOUT */
 html, body {
     min-height: 100vh;
@@ -43,7 +49,9 @@ footer {
 }
 
 #totalMonthlyOnDom {
-    background-color: #dcdcdc;
+    background-color: white;
+    text-align: right;
+    /* width: fit-content; */
 }
 
 /* HEADER/FOOTER */
@@ -93,4 +101,8 @@ tbody tr:nth-child(odd){
 }
 tbody tr:nth-child(even){
     background: #dcdcdc;
+}
+
+tbody tr:nth-child(last){
+    background: #313131;
 }
